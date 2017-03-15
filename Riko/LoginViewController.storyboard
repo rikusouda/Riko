@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="cvE-vb-yfc">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="xTI-wX-jxh" customClass="LoginViewController" customModule="Riko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="45U-SL-fe3"/>
+                        <viewControllerLayoutGuide type="bottom" id="m77-6Y-RzX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fn8-sd-b2P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレスを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WAk-GV-xM3">
+                                <rect key="frame" x="20" y="140" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワードを入力(7文字以上)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8g-L9-rga">
+                                <rect key="frame" x="20" y="190" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWB-xC-WQg">
+                                <rect key="frame" x="157" y="240" width="62" height="30"/>
+                                <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="xTI-wX-jxh" eventType="touchUpInside" id="uZy-Ua-i2Z"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="あなたのRikoに名前を付けてね" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4nJ-fg-2eO">
+                                <rect key="frame" x="20" y="90" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="u3Q-MS-f7s">
+                                <rect key="frame" x="97.5" y="290" width="180" height="70"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="riko-red" translatesAutoresizingMaskIntoConstraints="NO" id="ylE-4A-Fkt">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="PH1-8U-oYV"/>
+                                            <constraint firstAttribute="height" constant="70" id="zp8-cc-o3O"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="やり直してね" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nps-as-Atc">
+                                        <rect key="frame" x="70" y="25" width="110" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.4095815801411764" blue="0.31381017121479515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="G2u-xx-QMJ"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="riko-blue" translatesAutoresizingMaskIntoConstraints="NO" id="hjl-6i-bVG">
+                                <rect key="frame" x="163" y="30" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="iQm-JV-0fZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="pd0-5D-EvE"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4nJ-fg-2eO" firstAttribute="leading" secondItem="fn8-sd-b2P" secondAttribute="leading" constant="20" id="1mJ-ra-ped"/>
+                            <constraint firstItem="WAk-GV-xM3" firstAttribute="top" secondItem="4nJ-fg-2eO" secondAttribute="bottom" constant="20" id="3Zl-kb-wJS"/>
+                            <constraint firstAttribute="trailing" secondItem="WAk-GV-xM3" secondAttribute="trailing" constant="20" id="EWM-bF-UWI"/>
+                            <constraint firstItem="u3Q-MS-f7s" firstAttribute="centerX" secondItem="fn8-sd-b2P" secondAttribute="centerX" id="FSl-Jb-0tp"/>
+                            <constraint firstItem="c8g-L9-rga" firstAttribute="centerX" secondItem="fn8-sd-b2P" secondAttribute="centerX" id="Ugz-hT-v75"/>
+                            <constraint firstItem="c8g-L9-rga" firstAttribute="leading" secondItem="fn8-sd-b2P" secondAttribute="leading" constant="20" id="Umm-nn-exe"/>
+                            <constraint firstItem="NWB-xC-WQg" firstAttribute="top" secondItem="c8g-L9-rga" secondAttribute="bottom" constant="20" id="b9O-3d-JTG"/>
+                            <constraint firstItem="NWB-xC-WQg" firstAttribute="centerX" secondItem="fn8-sd-b2P" secondAttribute="centerX" id="bxy-Fb-pll"/>
+                            <constraint firstItem="hjl-6i-bVG" firstAttribute="centerX" secondItem="fn8-sd-b2P" secondAttribute="centerX" id="kk8-LD-c2k"/>
+                            <constraint firstItem="WAk-GV-xM3" firstAttribute="centerX" secondItem="fn8-sd-b2P" secondAttribute="centerX" id="mQK-WS-JJm"/>
+                            <constraint firstItem="c8g-L9-rga" firstAttribute="top" secondItem="WAk-GV-xM3" secondAttribute="bottom" constant="20" id="nPV-7E-nUO"/>
+                            <constraint firstItem="WAk-GV-xM3" firstAttribute="leading" secondItem="fn8-sd-b2P" secondAttribute="leading" constant="20" id="qgN-4Q-ITx"/>
+                            <constraint firstItem="4nJ-fg-2eO" firstAttribute="top" secondItem="hjl-6i-bVG" secondAttribute="bottom" constant="10" id="rNF-zU-Zqr"/>
+                            <constraint firstAttribute="trailing" secondItem="c8g-L9-rga" secondAttribute="trailing" constant="20" id="s0S-uL-XcW"/>
+                            <constraint firstItem="u3Q-MS-f7s" firstAttribute="top" secondItem="NWB-xC-WQg" secondAttribute="bottom" constant="20" id="xAC-JZ-eOH"/>
+                            <constraint firstAttribute="trailing" secondItem="4nJ-fg-2eO" secondAttribute="trailing" constant="20" id="xXs-A2-OMr"/>
+                            <constraint firstItem="hjl-6i-bVG" firstAttribute="top" secondItem="45U-SL-fe3" secondAttribute="bottom" constant="10" id="ycu-ku-vPM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="errorView" destination="u3Q-MS-f7s" id="HdC-RR-GeL"/>
+                        <outlet property="loginButton" destination="NWB-xC-WQg" id="wK2-sM-SjL"/>
+                        <outlet property="mailLabel" destination="WAk-GV-xM3" id="qtl-Xz-n9j"/>
+                        <outlet property="passwordLabel" destination="c8g-L9-rga" id="4LT-oW-YWn"/>
+                        <outlet property="rikosNameLabel" destination="4nJ-fg-2eO" id="BvG-gE-3ec"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0KA-sb-93E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.599999999999994" y="29.23538230884558"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="riko-blue" width="249" height="189"/>
+        <image name="riko-red" width="249" height="189"/>
+    </resources>
+</document>

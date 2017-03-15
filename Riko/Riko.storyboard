@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HRI-7Y-nhx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Riko View Controller-->
+        <scene sceneID="vgt-5f-w66">
+            <objects>
+                <viewController id="HRI-7Y-nhx" customClass="RikoViewController" customModule="Riko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0JG-JR-yvh"/>
+                        <viewControllerLayoutGuide type="bottom" id="t1Z-it-ArS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oN8-Xl-gvQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-U4-HCS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="riko-blue" translatesAutoresizingMaskIntoConstraints="NO" id="ylV-WS-HID">
+                                <rect key="frame" x="63" y="384" width="249" height="189"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziJ-mv-wXG">
+                                <rect key="frame" x="313" y="28" width="32" height="32"/>
+                                <state key="normal" image="history"/>
+                                <connections>
+                                    <segue destination="cZZ-Pg-bDQ" kind="presentation" id="RXb-zD-uIe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDk-hc-8Tw">
+                                <rect key="frame" x="166" y="603" width="44" height="44"/>
+                                <state key="normal" image="message"/>
+                                <connections>
+                                    <segue destination="ucs-E7-dg9" kind="presentation" id="Q2l-tl-eUT"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpeechBalloon" translatesAutoresizingMaskIntoConstraints="NO" id="ICz-SM-sSf">
+                                <rect key="frame" x="16" y="124" width="343" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="BVH-ed-Apa"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ga-uq-QG3">
+                                <rect key="frame" x="54" y="174" width="258" height="81"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ILC-U4-HCS" firstAttribute="centerX" secondItem="oN8-Xl-gvQ" secondAttribute="centerX" id="Ds6-Ym-4aQ"/>
+                            <constraint firstItem="t1Z-it-ArS" firstAttribute="top" secondItem="xDk-hc-8Tw" secondAttribute="bottom" constant="20" id="IzP-c4-BQA"/>
+                            <constraint firstItem="ICz-SM-sSf" firstAttribute="leading" secondItem="oN8-Xl-gvQ" secondAttribute="leading" constant="16" id="Jky-Gs-TIu"/>
+                            <constraint firstItem="ILC-U4-HCS" firstAttribute="leading" secondItem="oN8-Xl-gvQ" secondAttribute="leading" id="KBU-1r-Z0P"/>
+                            <constraint firstItem="xDk-hc-8Tw" firstAttribute="centerX" secondItem="oN8-Xl-gvQ" secondAttribute="centerX" id="Kys-S0-vZc"/>
+                            <constraint firstItem="ILC-U4-HCS" firstAttribute="top" secondItem="oN8-Xl-gvQ" secondAttribute="top" id="LvM-j2-ewA"/>
+                            <constraint firstItem="ylV-WS-HID" firstAttribute="top" secondItem="ICz-SM-sSf" secondAttribute="bottom" constant="30" id="YaU-PA-bED"/>
+                            <constraint firstAttribute="trailing" secondItem="ILC-U4-HCS" secondAttribute="trailing" id="Z1b-cw-Cbj"/>
+                            <constraint firstItem="8Ga-uq-QG3" firstAttribute="top" secondItem="ICz-SM-sSf" secondAttribute="top" constant="50" id="cBM-dj-nvY"/>
+                            <constraint firstItem="t1Z-it-ArS" firstAttribute="top" secondItem="ILC-U4-HCS" secondAttribute="bottom" id="ckT-2a-P2R"/>
+                            <constraint firstItem="xDk-hc-8Tw" firstAttribute="top" secondItem="ylV-WS-HID" secondAttribute="bottom" constant="30" id="f2f-y4-N4m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ziJ-mv-wXG" secondAttribute="trailing" constant="14" id="fh1-gR-dzI"/>
+                            <constraint firstItem="ILC-U4-HCS" firstAttribute="centerY" secondItem="oN8-Xl-gvQ" secondAttribute="centerY" id="lHa-Qz-n6w"/>
+                            <constraint firstItem="ziJ-mv-wXG" firstAttribute="top" secondItem="0JG-JR-yvh" secondAttribute="bottom" constant="8" id="lWd-hN-8ow"/>
+                            <constraint firstItem="8Ga-uq-QG3" firstAttribute="leading" secondItem="ICz-SM-sSf" secondAttribute="leading" constant="38" id="qBv-bJ-psX"/>
+                            <constraint firstItem="ylV-WS-HID" firstAttribute="centerX" secondItem="oN8-Xl-gvQ" secondAttribute="centerX" id="qMW-M8-7bW"/>
+                            <constraint firstAttribute="trailing" secondItem="ICz-SM-sSf" secondAttribute="trailing" constant="16" id="rYo-Ac-NXY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="historyButton" destination="ziJ-mv-wXG" id="u55-Dl-lzy"/>
+                        <outlet property="messageButton" destination="xDk-hc-8Tw" id="Dn3-fb-E6j"/>
+                        <outlet property="messageLabel" destination="8Ga-uq-QG3" id="Wre-1I-YQ6"/>
+                        <outlet property="rikoImageView" destination="ylV-WS-HID" id="Rto-UF-2vl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebV-C8-bhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-682.39999999999998" y="139.880059970015"/>
+        </scene>
+        <!--MessagesTable-->
+        <scene sceneID="aGu-6a-A9L">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MessagesTable" id="cZZ-Pg-bDQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="DFb-dk-Z0t"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OwC-BO-YRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-38" y="-89"/>
+        </scene>
+        <!--MessageTextField-->
+        <scene sceneID="NEp-aL-NYG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MessageTextField" id="ucs-E7-dg9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="SiK-9J-ezs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIc-AY-VLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26" y="376"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SpeechBalloon" width="184" height="128"/>
+        <image name="background" width="375" height="667"/>
+        <image name="history" width="32" height="32"/>
+        <image name="message" width="44" height="44"/>
+        <image name="riko-blue" width="249" height="189"/>
+    </resources>
+</document>

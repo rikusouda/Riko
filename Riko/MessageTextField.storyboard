@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UyH-3a-XPp">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--🐣送信🐤-->
+        <scene sceneID="ws3-B0-s7V">
+            <objects>
+                <viewController id="pLh-Ye-nCn" customClass="MessageTextFieldViewController" customModule="Riko" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JGf-tz-Q1X"/>
+                        <viewControllerLayoutGuide type="bottom" id="hiB-Z6-mTD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W2x-R6-pl2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="riko-blue" translatesAutoresizingMaskIntoConstraints="NO" id="lmM-hz-Mas">
+                                <rect key="frame" x="116" y="94" width="88" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Ssd-wF-G4Q"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cP-kn-prN">
+                                <rect key="frame" x="46" y="239" width="228" height="30"/>
+                                <state key="normal" title="みんなにメッセージを送信">
+                                    <color key="titleColor" red="1" green="0.40958158010000001" blue="0.31381017119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDJ-S2-KJB">
+                                <rect key="frame" x="10" y="189" width="295" height="30"/>
+                                <color key="textColor" red="1" green="0.40958158010000001" blue="0.31381017119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTn-wT-2Bh">
+                                <rect key="frame" x="62" y="104" width="34" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="🎤"/>
+                                <connections>
+                                    <action selector="didTapMicrophoneButton:" destination="pLh-Ye-nCn" eventType="touchUpInside" id="lpB-Uu-LJj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♪ ~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0d-ah-zXI">
+                                <rect key="frame" x="46" y="72" width="228" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lmM-hz-Mas" firstAttribute="leading" secondItem="FTn-wT-2Bh" secondAttribute="trailing" constant="20" id="Be4-XK-Iro"/>
+                            <constraint firstItem="aDJ-S2-KJB" firstAttribute="top" secondItem="lmM-hz-Mas" secondAttribute="bottom" constant="15" id="C0F-EC-gI3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R0d-ah-zXI" secondAttribute="trailing" constant="30" id="G6y-MR-jvU"/>
+                            <constraint firstItem="0cP-kn-prN" firstAttribute="leading" secondItem="W2x-R6-pl2" secondAttribute="leadingMargin" constant="30" id="MUY-Te-aCR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0cP-kn-prN" secondAttribute="trailing" constant="30" id="UJ1-dR-hXW"/>
+                            <constraint firstItem="R0d-ah-zXI" firstAttribute="top" secondItem="JGf-tz-Q1X" secondAttribute="bottom" constant="8" id="W2Z-bX-ipL"/>
+                            <constraint firstAttribute="trailing" secondItem="aDJ-S2-KJB" secondAttribute="trailing" constant="15" id="W7n-SL-RBg"/>
+                            <constraint firstItem="R0d-ah-zXI" firstAttribute="leading" secondItem="W2x-R6-pl2" secondAttribute="leadingMargin" constant="30" id="YK9-3w-76a"/>
+                            <constraint firstItem="lmM-hz-Mas" firstAttribute="top" secondItem="JGf-tz-Q1X" secondAttribute="bottom" constant="30" id="eaF-iT-bRk"/>
+                            <constraint firstItem="lmM-hz-Mas" firstAttribute="leading" secondItem="W2x-R6-pl2" secondAttribute="leadingMargin" constant="100" id="jgE-PD-o2y"/>
+                            <constraint firstItem="0cP-kn-prN" firstAttribute="top" secondItem="aDJ-S2-KJB" secondAttribute="bottom" constant="20" id="l6h-TA-h7U"/>
+                            <constraint firstItem="FTn-wT-2Bh" firstAttribute="top" secondItem="JGf-tz-Q1X" secondAttribute="bottom" constant="40" id="lke-HU-ZMa"/>
+                            <constraint firstItem="aDJ-S2-KJB" firstAttribute="leading" secondItem="W2x-R6-pl2" secondAttribute="leading" constant="10" id="u0e-wP-os4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lmM-hz-Mas" secondAttribute="trailing" constant="100" id="uBw-eo-48m"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="🐣送信🐤" id="Gfa-Ug-GUa">
+                        <barButtonItem key="rightBarButtonItem" title="閉じる" id="hKC-0n-7JU">
+                            <connections>
+                                <action selector="didTapCloseButton:" destination="pLh-Ye-nCn" id="pzN-8I-gu0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="handleSendButton" destination="0cP-kn-prN" id="u4b-gp-5Rg"/>
+                        <outlet property="microphoneButton" destination="FTn-wT-2Bh" id="dWI-tC-Gng"/>
+                        <outlet property="soundLabel" destination="R0d-ah-zXI" id="f15-0b-Cld"/>
+                        <outlet property="textField" destination="aDJ-S2-KJB" id="C5G-1C-Q6c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfw-eM-XW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="206.25" y="-3.1690140845070425"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="O68-4z-MUz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UyH-3a-XPp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eO4-c7-Qgj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pLh-Ye-nCn" kind="relationship" relationship="rootViewController" id="0aa-CX-gEg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1MI-bX-Z5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791.25" y="-3.1690140845070425"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="riko-blue" width="249" height="189"/>
+    </resources>
+</document>
