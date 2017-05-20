@@ -54,7 +54,19 @@ class RikoViewController: UIViewController {
         changeRikoType()
         shouldShowLoginViewController()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.messageRecieved), name: NSNotification.Name(rawValue: "MessageRecieved"), object: nil)
+        MessageManager.sharedInstance.lastMessage.asObservable()
+            .subscribe(onNext: { [unowned self] (message) in
+                self.messageLabel.text = message.body
+                
+                if !self.talker.continueSpeaking() {
+                    if let body = message.body {
+                        let utterance = AVSpeechUtterance(string: body)
+                        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+                        self.talker.speak(utterance)
+                    }
+                }
+            })
+            .addDisposableTo(disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -184,23 +196,6 @@ class RikoViewController: UIViewController {
             }
         }
     }
-    
-    func messageRecieved(notification: Notification?) {
-        guard let message = notification?.object as? Message else {
-            return
-        }
-        
-        messageLabel.text = message.body
-        
-        if (!self.talker.continueSpeaking()) {
-            if let body = message.body {
-                let utterance = AVSpeechUtterance(string: body)
-                utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-                self.talker.speak(utterance)
-            }
-        }
-    }
-    
 }
 
 extension RikoViewController: UIPreviewInteractionDelegate {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class MessageManager {
     
@@ -15,8 +16,10 @@ class MessageManager {
         return instance
     }()
     
+    var lastMessage = Variable<Message>(Message())
+    
     func setup() {
-        FirebaseManager.sharedInstance.delegate = {(result) -> Void in
+        FirebaseManager.sharedInstance.delegate = { [weak self] (result) -> Void in
             guard let id = result.id, !RealmManager.sharedInstance.isExists(id: id) else {
                 return
             }
@@ -28,7 +31,7 @@ class MessageManager {
             message.date = result.date
             RealmManager.sharedInstance.add(message:message)
             
-            NotificationCenter.default.post(name:NSNotification.Name(rawValue: "MessageRecieved"), object: message)
+            self?.lastMessage.value = message
         }
     }
 }
