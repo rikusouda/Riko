@@ -213,7 +213,6 @@
 				TargetAttributes = {
 					CC5254421E6A5568001CB46F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = Q4XK7FXL9Q;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -431,7 +430,7 @@
 			baseConfigurationReference = 298C844281C1A98E243C72A6 /* Pods-Riko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q4XK7FXL9Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Riko/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tryswift.www.Riko;
@@ -445,7 +444,7 @@
 			baseConfigurationReference = 6BB1F125644B66B0DACDEEB2 /* Pods-Riko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q4XK7FXL9Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Riko/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tryswift.www.Riko;
