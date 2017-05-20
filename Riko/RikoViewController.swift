@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import RxSwift
+import RxCocoa
 
 enum RikoType: Int {
     
@@ -55,11 +56,15 @@ class RikoViewController: UIViewController {
         shouldShowLoginViewController()
         
         MessageManager.sharedInstance.lastMessage.asObservable()
+            .map { $0.body }
+            .bindTo(messageLabel.rx.text)
+            .addDisposableTo(disposeBag)
+        
+        MessageManager.sharedInstance.lastMessage.asObservable()
+            .map { $0.body }
             .subscribe(onNext: { [unowned self] (message) in
-                self.messageLabel.text = message.body
-                
                 if !self.talker.continueSpeaking() {
-                    if let body = message.body {
+                    if let body = message {
                         let utterance = AVSpeechUtterance(string: body)
                         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                         self.talker.speak(utterance)
