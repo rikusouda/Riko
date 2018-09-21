@@ -20,7 +20,7 @@ class FirebaseManager {
     }
     
     let messagePath = "message"
-    var databaseRef: FIRDatabaseReference!
+    var databaseRef: DatabaseReference!
     var delegate: ((FirebaseManager.Message)->Void)?
     
     static let sharedInstance : FirebaseManager = {
@@ -29,7 +29,7 @@ class FirebaseManager {
     }()
     
     init() {
-        databaseRef = FIRDatabase.database().reference()
+        databaseRef = Database.database().reference()
     }
     
     // MARK: - Public Methods
@@ -42,18 +42,18 @@ class FirebaseManager {
     }
     
     func isLogin() -> Bool {
-        return FIRAuth.auth()?.currentUser != nil
+        return Auth.auth().currentUser != nil
     }
     
     func logout() {
-        try! FIRAuth.auth()?.signOut()
+        try! Auth.auth().signOut()
     }
     
     func login(mail: String, password: String, completion: @escaping (Bool)->Void) {
-        FIRAuth.auth()?.signIn(withEmail: mail, password: password, completion: { (user, error) in
+        Auth.auth().signIn(withEmail: mail, password: password, completion: { (user, error) in
             if let error = error {
                 log?.error(error.localizedDescription)
-                FIRAuth.auth()?.createUser(withEmail: mail, password: password, completion: { (user, error) in
+                Auth.auth().createUser(withEmail: mail, password: password, completion: { (user, error) in
                     if let error = error {
                         log?.error(error.localizedDescription)
                         completion(false)
@@ -70,7 +70,7 @@ class FirebaseManager {
     func sendMessage(body: String, name: String) {
         let timeInterval = Date().timeIntervalSince1970 / 1000
         
-        if let userID = FIRAuth.auth()?.currentUser?.uid {
+        if let userID = Auth.auth().currentUser?.uid {
             let messageData = ["body":body, "name":name, "user_id":userID, "date":timeInterval] as [String : Any]
             databaseRef.child(messagePath).childByAutoId().setValue(messageData)
         }
@@ -78,7 +78,7 @@ class FirebaseManager {
     
     // MARK: - Private Methods
     
-    fileprivate func recevieMessage(_ snapshot: FIRDataSnapshot) {
+    fileprivate func recevieMessage(_ snapshot: DataSnapshot) {
         guard let delegate = delegate else {
             log?.debug("delegateが未設定だよ")
             return
@@ -97,7 +97,7 @@ class FirebaseManager {
             }
             
             // 自分のメッセージは投げない
-            if result.userID == FIRAuth.auth()?.currentUser?.uid {
+            if result.userID == Auth.auth().currentUser?.uid {
                 return
             }
             
