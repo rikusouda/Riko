@@ -10,11 +10,11 @@ import Foundation
 import RealmSwift
 
 class Message : Object {
-    dynamic var id: String? = ""
-    dynamic var body: String? = nil
-    dynamic var name: String? = nil
-    dynamic var userID: String? = nil
-    dynamic var date: Date? = nil
+    @objc dynamic var id: String? = ""
+    @objc dynamic var body: String? = nil
+    @objc dynamic var name: String? = nil
+    @objc dynamic var userID: String? = nil
+    @objc dynamic var date: Date? = nil
     
     override static func primaryKey() -> String? {
         return "id"
