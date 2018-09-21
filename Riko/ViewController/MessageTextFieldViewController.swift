@@ -88,9 +88,9 @@ class MessageTextFieldViewController: UIViewController, SFSpeechRecognizerDelega
         refreshTask()
         
         let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(AVAudioSessionCategoryRecord)
-        try audioSession.setMode(AVAudioSessionModeMeasurement)
-        try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        try audioSession.setCategory(.record, mode: .default)
+        try audioSession.setMode(.measurement)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
