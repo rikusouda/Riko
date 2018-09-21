@@ -57,8 +57,8 @@ class RikoViewController: UIViewController {
         
         MessageManager.sharedInstance.lastMessage.asObservable()
             .map { $0.body }
-            .bindTo(messageLabel.rx.text)
-            .addDisposableTo(disposeBag)
+            .bind(to: messageLabel.rx.text)
+            .disposed(by: disposeBag)
         
         MessageManager.sharedInstance.lastMessage.asObservable()
             .map { $0.body }
@@ -71,7 +71,7 @@ class RikoViewController: UIViewController {
                     }
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -104,11 +104,11 @@ class RikoViewController: UIViewController {
         Observable.from(jumps)
             .concat()
             .subscribe()
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func degreesToRadians(degrees: Float) -> Float {
-        return degrees * Float(M_PI) / 180.0
+        return degrees * Float(Double.pi) / 180.0
     }
     
     func vibrated(vibrated:Bool, view: UIView) {

@@ -35,21 +35,21 @@ class LoginViewController: UIViewController {
         
         let rikoNameValid: Observable<Bool> = rikosNameLabel.rx.text
             .map{ text -> Bool in
-                text?.characters.count ?? 0 > 0
+                text?.count ?? 0 > 0
             }
-            .shareReplay(1)
+            .share(replay: 1)
         
         let mailValid: Observable<Bool> = mailLabel.rx.text
             .map{ text -> Bool in
-                text?.characters.count ?? 0 > 0
+                text?.count ?? 0 > 0
             }
-            .shareReplay(1)
+            .share(replay: 1)
         
         let passwordValid: Observable<Bool> = passwordLabel.rx.text
             .map{ text -> Bool in
-                text?.characters.count ?? 0 > 6
+                text?.count ?? 0 > 6
             }
-            .shareReplay(1)
+            .share(replay: 1)
         
         let allValid: Observable<Bool> = Observable.combineLatest(rikoNameValid,
                                                                   mailValid,
@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
                                                                     $0 && $1 && $2 && !$3
         }
         
-        allValid.bindTo(loginButton.rx.isEnabled).addDisposableTo(disposeBag)
+        allValid.bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
         
         loginButton.rx.tap.subscribe(onNext: { [unowned self] in
             if let mail = self.mailLabel.text, let passwoard = self.passwordLabel.text {
@@ -79,7 +79,7 @@ class LoginViewController: UIViewController {
                                                         self.running.value = false
                 })
             }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
     
     override func didReceiveMemoryWarning() {

@@ -38,15 +38,17 @@ class MessageTextFieldViewController: UIViewController, SFSpeechRecognizerDelega
         speechRecognizer.delegate = self
         microphoneButton.isEnabled = false
         
-        handleSendButton.rx.tap.subscribe(onNext: { [unowned self] in
-            if let text = self.textField.text {
-                FirebaseManager.sharedInstance.sendMessage(body: text, name: UserDefaultsUtil.rikoName)
-            }
-            
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
-            }
-        }).addDisposableTo(disposeBag)
+        handleSendButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                if let text = self.textField.text {
+                    FirebaseManager.sharedInstance.sendMessage(body: text, name: UserDefaultsUtil.rikoName)
+                }
+                
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
